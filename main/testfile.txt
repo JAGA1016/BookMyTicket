@@ -1,0 +1,21 @@
+CALL add_schedule(
+    'Palakkad Super Fast'::VARCHAR(100),
+    ARRAY[1, 2, 3, 4, 5]::INT[],
+    ARRAY['AC', 'AC', 'AC', 'NON-AC', 'NON-AC']::SEAT_TYPE[],
+    ARRAY['Monday', 'Tuesday', 'Wednesday', 'Friday', 'Saturday']::DAYS[],
+    ARRAY['Palakkad_jn', 'Ernakulam']::VARCHAR(100)[],
+    ARRAY[(1, '8:00:00'), (1, '11:00:00')]::DAY_TIME_Format[],
+    ARRAY[(1, '8:10:00'), (1, '11:20:00')]::DAY_TIME_Format[],
+    ARRAY[0, 120]::NUMERIC(7, 2)[]
+);
+
+
+CALL book_tickets(
+    in_name      => ARRAY['sravs','John','likith,'rohith']::VARCHAR(100)[],
+    in_age       => ARRAY[13,15,16,18]::INT[],
+    in_seat_type => ARRAY['AC','AC',AC,AC]::SEAT_TYPE[],
+    src_station  => 'Palakkad_jn',
+    dest_station => 'Ernakulam',
+    train_name   => 'Intercity',
+    in_date      => '2023-05-08'::DATE
+);
